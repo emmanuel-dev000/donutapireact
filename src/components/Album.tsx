@@ -14,6 +14,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Donut } from '../types/Donut';
+import GetAllDonuts from '../hooks/GetAllDonuts';
 
 function Copyright() {
   return (
@@ -43,7 +45,39 @@ const theme = createTheme({
   }
 });
 
+function DonutCard(donut: Donut) {
+  return (
+    <Grid item key={donut.id} xs={12} sm={6} md={4}>
+      <Card
+        sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+      >
+        <CardMedia
+          component="div"
+          sx={{
+            // 16:9
+            pt: '56.25%',
+          }}
+          image={donut.imageUrl}
+        />
+        <CardContent sx={{ flexGrow: 1 }}>
+          <Typography gutterBottom variant="h5" component="h2">
+            {donut.name}
+          </Typography>
+          <Typography>
+            {donut.description}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small" variant="contained">View</Button>
+          <Button size="small" variant="outlined">Edit</Button>
+        </CardActions>
+      </Card>
+    </Grid>
+  );
+}
+
 export default function Album() {
+  const donuts = GetAllDonuts();
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -91,35 +125,9 @@ export default function Album() {
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                >
-                  <CardMedia
-                    component="div"
-                    sx={{
-                      // 16:9
-                      pt: '56.25%',
-                    }}
-                    image="https://images.unsplash.com/photo-1626094309830-abbb0c99da4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80"
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe the
-                      content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" variant="contained">View</Button>
-                    <Button size="small" variant="outlined">Edit</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
+            {
+              donuts.map((donut) => DonutCard(donut))
+            }
           </Grid>
         </Container>
       </main>

@@ -5,8 +5,8 @@ import Try from './try/try'
 export default function App() {
   return (
     <>
-      <Try></Try>
-      {/* <Album></Album> */}
+      {/* <Try></Try> */}
+      <Album></Album>
     </>
   )
 }
