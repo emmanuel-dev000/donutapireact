@@ -1,4 +1,5 @@
 import { Box, Container, Typography, Stack, Button } from "@mui/material";
+import DonutFormPopup from "./DonutFormPopup";
 
 export default function Header() {
     return (
@@ -6,8 +7,7 @@ export default function Header() {
             sx={{
             bgcolor: 'background.paper',
             pt: 8,
-            pb: 6,
-            }}>
+            pb: 6}}>
             <Container maxWidth="sm">
             <Typography
                 component="h1"
@@ -25,7 +25,8 @@ export default function Header() {
                 direction="row"
                 spacing={2}
                 justifyContent="center">
-                <Button variant="contained">{ "Add new Donut" }</Button>
+                {/* <Button variant="contained">{ "Add new Donut" }</Button> */}
+                <DonutFormPopup />
                 <Button variant="outlined">{ "Donuts' Dashboard" }</Button>
             </Stack>
             </Container>
