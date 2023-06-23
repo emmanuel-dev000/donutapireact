@@ -1,12 +1,12 @@
 import './App.css'
 import Album from './components/Album'
+import Try from './try/try'
 
-function App() {
+export default function App() {
   return (
     <>
-      <Album></Album>
+      <Try></Try>
+      {/* <Album></Album> */}
     </>
   )
 }
-
-export default App
