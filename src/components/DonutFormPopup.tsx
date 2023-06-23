@@ -3,9 +3,10 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { Modal } from '@mui/material';
 import AddNewDonut from '../hooks/AddNewDonut';
+import { Donut } from '../types/Donut';
 
 const style = {
   position: 'absolute' as "absolute",
@@ -23,23 +24,25 @@ export default function DonutFormPopup() {
   const openState = () => setOpen(true); 
   const closeState = () => setOpen(false);
 
-  const donutIdRef = useRef("");
-  const donutNameRef = useRef("");
-  const donutDescriptionRef = useRef("");
-  const donutImageUrlRef = useRef("");
+  const [id, setId] = useState("");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   const addNewDonut = async () => {
-    const donut = {
-      id: donutIdRef.current.value,
-      name: donutNameRef.current.value,
-      description: donutDescriptionRef.current.value,
-      imageUrl: donutImageUrlRef.current.value,
+    const donut : Donut = {
+      id: id,
+      name: name,
+      description: description,
+      imageUrl: imageUrl,
     }
 
     const savedDonut = await AddNewDonut(donut);
-    alert(JSON.stringify(savedDonut));
+    if (savedDonut != null) {
+      alert("Successfully added: " + savedDonut);
+    }
   };
-  
+
   return (
     <>
       <Button variant="contained" onClick={openState}>{ "Add new Donut" }</Button>
@@ -60,7 +63,8 @@ export default function DonutFormPopup() {
                   id="id"
                   label="Donut ID"
                   autoFocus
-                  inputRef={donutIdRef}/>
+                  onChange={(e) => setId(e.target.value)}
+                  />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -68,7 +72,7 @@ export default function DonutFormPopup() {
                   id="name"
                   label="Donut Name"
                   name="name"
-                  inputRef={donutNameRef}/>
+                  onChange={(e) => setName(e.target.value)}/>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -76,7 +80,7 @@ export default function DonutFormPopup() {
                   id="description"
                   label="Donut Description"
                   name="description"
-                  inputRef={donutDescriptionRef}/>
+                  onChange={(e) => setDescription(e.target.value)}/>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -84,7 +88,7 @@ export default function DonutFormPopup() {
                   name="imageUrl"
                   label="Donut Image URL"
                   id="imageUrl"
-                  inputRef={donutImageUrlRef}/>
+                  onChange={(e) => setImageUrl(e.target.value)}/>
               </Grid>
             </Grid>
             <Button
