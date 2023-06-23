@@ -1,12 +1,12 @@
 import './App.css'
-import Album from './components/Album'
+import Body from './components/Body'
 // import Try from './try/try'
 
 export default function App() {
   return (
     <>
       {/* <Try></Try> */}
-      <Album></Album>
+      <Body></Body>
     </>
   )
 }
