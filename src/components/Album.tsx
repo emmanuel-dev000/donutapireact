@@ -16,6 +16,7 @@ import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Donut } from '../types/Donut';
 import GetAllDonuts from '../hooks/GetAllDonuts';
+import Footer from './Footer';
 
 function Copyright() {
   return (
@@ -130,7 +131,8 @@ export default function Album() {
         </Container>
       </main>
       {/* Footer */}
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
+      <Footer />
+      {/* <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
           Donut API
         </Typography>
@@ -145,7 +147,7 @@ export default function Album() {
           </Link>
         </Typography>
         <Copyright />
-      </Box>
+      </Box> */}
       {/* End footer */}
     </ThemeProvider>
   );
