@@ -10,7 +10,7 @@ import GetAllDonuts from '../../hooks/GetAllDonuts';
 import React from 'react';
 import DeleteDonutById from '../../hooks/DeleteDonutById';
 
-export default function Orders() {
+export default function DonutTable() {
   const donuts = GetAllDonuts();
   return (
     <React.Fragment>

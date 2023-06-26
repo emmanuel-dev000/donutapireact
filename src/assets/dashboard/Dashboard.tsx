@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Orders from './Orders';
+import DonutTable from './DonutTable';
 import { AppBar, Button } from '@mui/material';
 
 export default function Dashboard() {
@@ -43,7 +43,7 @@ export default function Dashboard() {
             <Grid>
             <Grid item xs={12}>
                 <Paper elevation={6} sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                <Orders />
+                <DonutTable />
                 </Paper>
             </Grid>
             </Grid>
