@@ -5,10 +5,11 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Title from './Title';
 import { Button } from '@mui/material';
-import { Donut } from '../../types/Donut';
-import GetAllDonuts from '../../hooks/GetAllDonuts';
+import { Donut } from '../types/Donut';
+import GetAllDonuts from '../hooks/GetAllDonuts';
 import React from 'react';
-import DeleteDonutById from '../../hooks/DeleteDonutById';
+import DeleteDonutById from '../hooks/DeleteDonutById';
+import DonutEditFormPopup from './DonutEditFormPopup';
 
 export default function DonutTable() {
   const donuts = GetAllDonuts();
@@ -27,9 +28,9 @@ export default function DonutTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-            {
-              donuts.map((donut) => DonutRow(donut))
-            }
+          {
+            donuts.map((donut) => DonutRow(donut))
+          }
         </TableBody>
       </Table>
     </React.Fragment>
@@ -43,7 +44,9 @@ function DonutRow(donut : Donut) {
       <TableCell>{donut.name}</TableCell>
       <TableCell>{SubstringText(donut.description)}</TableCell>
       <TableCell>{SubstringText(donut.imageUrl)}</TableCell>
-      <TableCell><Button variant="contained">{ "Edit" }</Button></TableCell>
+      <TableCell>
+        <DonutEditFormPopup  donutId={ donut.id } donutName={donut.name}/>
+      </TableCell>
       <TableCell>
         <Button color="error" variant="contained" onClick={ async() => {
           const data = await DeleteDonutById(donut.id);

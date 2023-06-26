@@ -1,11 +1,11 @@
 // import './App.css'
 import Body from './components/Body'
-import Try from './try/try'
+import Dashboard from './dashboard/Dashboard'
 
 export default function App() {
   return (
     <>
-      <Try></Try>
+      <Dashboard></Dashboard>
       {/* <Body></Body> */}
     </>
   )
