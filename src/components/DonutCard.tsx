@@ -1,4 +1,4 @@
-import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button } from "@mui/material";
+import { Grid, Card, CardMedia, CardContent, Typography, CardActions } from "@mui/material";
 import { Donut } from "../types/Donut";
 import DonutEditFormPopup from "../dashboard/DonutEditFormPopup";
 import DonutViewFormPopup from "./DonutViewPopup";
@@ -7,6 +7,7 @@ export default function DonutCard(donut: Donut) {
     return (
       <Grid item key={donut.id} xs={12} sm={6} md={4}>
         <Card
+          elevation={4}
           sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
         >
           <CardMedia
