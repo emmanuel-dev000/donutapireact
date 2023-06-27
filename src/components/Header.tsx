@@ -1,4 +1,5 @@
 import { Box, Container, Typography, Stack, Button } from "@mui/material";
+import { Link } from "react-router-dom";
 import DonutFormPopup from "./DonutFormPopup";
 
 export default function Header() {
@@ -25,9 +26,12 @@ export default function Header() {
                 direction="row"
                 spacing={2}
                 justifyContent="center">
-                {/* <Button variant="contained">{ "Add new Donut" }</Button> */}
                 <DonutFormPopup />
-                <Button variant="outlined">{ "Donuts' Dashboard" }</Button>
+                <Button variant="outlined">
+                    <Link to="/dashboard" style={{ textDecoration: "none", color: "inherit" }}>
+                        { "Donuts' Dashboard" }
+                    </Link>
+                </Button>
             </Stack>
             </Container>
       </Box>

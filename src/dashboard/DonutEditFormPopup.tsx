@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { Modal } from '@mui/material';
 import { Donut } from '../types/Donut';
-import GetDonutById from '../hooks/GetDonutById';
 import EditDonutById from '../hooks/EditDonutById';
 
 const style = {
