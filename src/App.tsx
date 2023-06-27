@@ -7,7 +7,7 @@ export default function App() {
     <BrowserRouter>
         <Routes>
           <Route index element={ <DonutsHomepage /> }/>
-          <Route path="/" element={ <DonutsHomepage /> }/>
+          <Route path="/donutapireact" element={ <DonutsHomepage /> }/>
           <Route path="/dashboard" element={ <DonutsDashboard /> }/>
         </Routes>
     </BrowserRouter>
