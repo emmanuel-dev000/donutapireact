@@ -28,7 +28,7 @@ export default function Header() {
                 justifyContent="center">
                 <DonutFormPopup />
                 <Button variant="outlined">
-                    <Link to="/donutapireact/dashboard" style={{ textDecoration: "none", color: "inherit" }}>
+                    <Link to="/dashboard" style={{ textDecoration: "none", color: "inherit" }}>
                         { "Donuts' Dashboard" }
                     </Link>
                 </Button>
