@@ -25,7 +25,7 @@ export default function Dashboard() {
             { "Dashboard" }
             </Typography>
             <Button variant="text" color="inherit">
-                <Link to="/home" style={{ textDecoration: "none", color: "inherit" }}>
+                <Link to="/donutapireact" style={{ textDecoration: "none", color: "inherit" }}>
                     { "Logout" }
                 </Link>
             </Button>
