@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import DonutTable from './DonutTable';
 import { AppBar, Button } from '@mui/material';
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
   return (
@@ -23,7 +24,11 @@ export default function Dashboard() {
             >
             { "Dashboard" }
             </Typography>
-            <Button variant="text" color="inherit">{ "Logout" }</Button>
+            <Button variant="text" color="inherit">
+                <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+                    { "Logout" }
+                </Link>
+            </Button>
         </Toolbar>
         </AppBar>
         <Box
@@ -43,7 +48,7 @@ export default function Dashboard() {
             <Grid>
             <Grid item xs={12}>
                 <Paper elevation={6} sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                <DonutTable />
+                    <DonutTable />
                 </Paper>
             </Grid>
             </Grid>
