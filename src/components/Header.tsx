@@ -1,6 +1,6 @@
 import { Box, Container, Typography, Stack, Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import DonutFormPopup from "./DonutFormPopup";
+import DonutFormPopup from "./DonutAddPopup";
 
 export default function Header() {
     return (

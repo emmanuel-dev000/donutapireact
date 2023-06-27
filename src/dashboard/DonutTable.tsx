@@ -10,6 +10,7 @@ import GetAllDonuts from '../hooks/GetAllDonuts';
 import React from 'react';
 import DeleteDonutById from '../hooks/DeleteDonutById';
 import DonutEditFormPopup from './DonutEditFormPopup';
+import SubstringText from '../utils/SubstringText';
 
 export default function DonutTable() {
   const donuts = GetAllDonuts();
@@ -59,7 +60,3 @@ function DonutRow(donut : Donut) {
   );
 }
 
-function SubstringText(text: string) {
-  const MAX_CHARS_SHOWN = 25;
-  return (text.length < MAX_CHARS_SHOWN) ? text : text.substring(0, MAX_CHARS_SHOWN) + "...";
-}

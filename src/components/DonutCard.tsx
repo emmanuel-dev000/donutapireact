@@ -1,5 +1,7 @@
 import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button } from "@mui/material";
 import { Donut } from "../types/Donut";
+import DonutEditFormPopup from "../dashboard/DonutEditFormPopup";
+import DonutViewFormPopup from "./DonutViewPopup";
 
 export default function DonutCard(donut: Donut) {
     return (
@@ -24,8 +26,8 @@ export default function DonutCard(donut: Donut) {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small" variant="contained">View</Button>
-            <Button size="small" variant="outlined">Edit</Button>
+            <DonutViewFormPopup donutId={donut.id} donutName={donut.name} donutDescription={donut.description} donutImageUrl={donut.imageUrl} />
+            <DonutEditFormPopup donutId={donut.id} donutName={donut.name} />
           </CardActions>
         </Card>
       </Grid>

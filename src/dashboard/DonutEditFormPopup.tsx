@@ -49,7 +49,7 @@ export default function DonutEditFormPopup({ donutId, donutName }: DonutEditForm
 
   return (
     <>
-      <Button variant="contained" onClick={openState}>{ "Edit" }</Button>
+      <Button size="small" variant="outlined" onClick={openState}>{ "Edit" }</Button>
       <Modal
         open={open}
         onClose={closeState}>
