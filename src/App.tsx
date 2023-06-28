@@ -1,12 +1,6 @@
-import { Stack, Typography, Switch } from '@mui/material';
-import LanguageSwitch from './components/LanguageSwitch';
 import PageRoutes from './routes/PageRoutes';
-import { useState } from 'react';
-import axios from 'axios';
-import LanguageTranslatorFormSlide from './try/AlertDialogSlide';
 
 export default function App() {
-  // const [open, setOpen] = useState(false);
   return (
     <PageRoutes />
   );
