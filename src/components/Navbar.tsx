@@ -1,7 +1,7 @@
 import { AppBar, Button, Toolbar, Typography } from "@mui/material";
 import DonutSmallIcon from "@mui/icons-material/DonutSmall";
 import { Link } from "react-router-dom";
-import LanguageSwitch from "./LanguageSwitch";
+// import LanguageSwitch from "./LanguageSwitch";
 
 export default function Navbar() {
     return (
@@ -11,7 +11,7 @@ export default function Navbar() {
                 <Typography sx={{ flexGrow: 1 }} variant="h6" color="inherit" noWrap>
                     { "Donut API" }
                 </Typography>
-                <LanguageSwitch />
+                {/* <LanguageSwitch /> */}
                 <Button variant="text" color="inherit">
                     <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
                         { "Login" }
