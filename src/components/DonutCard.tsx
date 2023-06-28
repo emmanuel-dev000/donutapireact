@@ -1,11 +1,11 @@
 import { Grid, Card, CardMedia, CardContent, Typography, CardActions } from "@mui/material";
-import { Donut } from "../types/Donut";
 import DonutEditFormPopup from "../dashboard/DonutEditFormPopup";
 import DonutViewFormPopup from "./DonutViewPopup";
+import DonutFormProps from "../interfaces/DonutFormProps";
 
-export default function DonutCard(donut: Donut) {
+export default function DonutCard({ donutId, donutName, donutDescription, donutImageUrl, isEnglish }: DonutFormProps) {
     return (
-      <Grid item key={donut.id} xs={12} sm={6} md={4}>
+      <Grid item key={donutId} xs={12} sm={6} md={4}>
         <Card
           elevation={4}
           sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
@@ -16,19 +16,19 @@ export default function DonutCard(donut: Donut) {
               // 16:9
               pt: '56.25%',
             }}
-            image={donut.imageUrl}
+            image={donutImageUrl}
           />
           <CardContent sx={{ flexGrow: 1 }}>
             <Typography gutterBottom variant="h5" component="h2">
-              {donut.name}
+              {donutName}
             </Typography>
             <Typography>
-              {donut.description}
+              {donutDescription}
             </Typography>
           </CardContent>
           <CardActions>
-            <DonutViewFormPopup donutId={donut.id} donutName={donut.name} donutDescription={donut.description} donutImageUrl={donut.imageUrl} />
-            <DonutEditFormPopup donutId={donut.id} donutName={donut.name} />
+            <DonutViewFormPopup donutId={donutId} donutName={donutName} donutDescription={donutDescription} donutImageUrl={donutImageUrl} isEnglish={isEnglish}/>
+            <DonutEditFormPopup donutId={donutId} donutName={donutName} />
           </CardActions>
         </Card>
       </Grid>

@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { Modal } from '@mui/material';
 import AddNewDonut from '../hooks/AddNewDonut';
 import { Donut } from '../types/Donut';
+import LanguageProps from '../interfaces/LanguageProps';
 
 const style = {
   position: 'absolute' as "absolute",
@@ -19,7 +20,7 @@ const style = {
   p: 4,
 };
 
-export default function DonutFormPopup() {
+export default function DonutFormPopup({ isEnglish } : LanguageProps) {
   const [open, setOpen] = useState(false);
   const openState = () => setOpen(true); 
   const closeState = () => setOpen(false);
@@ -45,13 +46,15 @@ export default function DonutFormPopup() {
 
   return (
     <>
-      <Button variant="contained" onClick={openState}>{ "Add new Donut" }</Button>
+      <Button variant="contained" onClick={openState}>
+        { (isEnglish) ? "Add new Donut" : "あたらしいドーナツを加する"}
+      </Button>
       <Modal
         open={open}
         onClose={closeState}>
         <Box sx={style}>
           <Typography component="h1" variant="h5">
-            { "Add new donut?" }
+            { (isEnglish) ? "Add new Donut" : "あたらしいドーナツを加する"}
           </Typography>
           <Box component="form" noValidate sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -100,7 +103,7 @@ export default function DonutFormPopup() {
                 addNewDonut();
                 closeState();
               }}>
-              Save
+              { (isEnglish) ? "Save" : "セーヴ"}
             </Button>
           </Box>
         </Box>

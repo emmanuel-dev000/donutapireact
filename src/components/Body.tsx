@@ -4,6 +4,8 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import Header from './Header';
 import DonutAlbum from './DonutAlbum';
+import { useState } from 'react';
+import LanguageTranslatorFormSlide from '../try/AlertDialogSlide';
 
 const theme = createTheme({
   palette: {
@@ -24,10 +26,11 @@ export default function Body() {
       <CssBaseline />
       <Navbar />
       <main>
-        <Header />
-        <DonutAlbum />
+        <LanguageTranslatorFormSlide />
+        <Header isEnglish={false}/>
+        <DonutAlbum isEnglish={false}/>
       </main>
-      <Footer />
+      <Footer isEnglish={false}/>
     </ThemeProvider>
   );
 }

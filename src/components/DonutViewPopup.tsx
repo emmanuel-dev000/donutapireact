@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { Modal } from '@mui/material';
 import SubstringText from '../utils/SubstringText';
+import DonutFormProps from '../interfaces/DonutFormProps';
 
 const style = {
   position: 'absolute' as "absolute",
@@ -17,21 +18,16 @@ const style = {
   p: 4,
 };
 
-interface DonutViewFormPopupProps {
-  donutId: string;
-  donutName: string;
-  donutDescription: string;
-  donutImageUrl: string;
-}
-
-export default function DonutViewFormPopup({ donutId, donutName, donutDescription, donutImageUrl }: DonutViewFormPopupProps) {
+export default function DonutViewFormPopup({ donutId, donutName, donutDescription, donutImageUrl, isEnglish }: DonutFormProps) {
   const [open, setOpen] = useState(false);
   const openState = () => setOpen(true); 
   const closeState = () => setOpen(false);
 
   return (
     <>
-      <Button size="small" variant="contained" onClick={openState}>{ "View" }</Button>
+      <Button size="small" variant="contained" onClick={openState}>
+        { (isEnglish) ? "View" : "見て"}
+      </Button>
       <Modal
         open={open}
         onClose={closeState}>
@@ -59,7 +55,7 @@ export default function DonutViewFormPopup({ donutId, donutName, donutDescriptio
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               onClick={() => {closeState();}}>
-              { "Close" }
+              { (isEnglish) ? "Close" : "閉じる" }
             </Button>
           </Box>
         </Box>
