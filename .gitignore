@@ -61,3 +61,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# React-Spring Boot hooks
+src/hooks/AddNewDonut.ts
+src/hooks/DeleteDonutById.ts
+src/hooks/EditDonutById.ts
+src/hooks/GetAllDonuts.ts
+src/hooks/GetDonutById.ts
